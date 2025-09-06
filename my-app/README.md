@@ -1,12 +1,35 @@
-# React + Vite
+# Weatherly 🌤️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Weatherly** is a modern, responsive weather application built with **React** and **plain CSS**, designed to provide users with accurate and visually appealing weather information.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## **Demo**
+Check the live deployed app here: https://weatherly-862de.web.app/
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## **Features**
+- Search for any city to get real-time weather updates.
+- Displays:
+  - Temperature
+  - Weather type (e.g., Clear, Clouds, Rain)
+  - Humidity
+  - Wind speed
+- Shows a **main weather image** and **small animated weather icons** based on the current weather conditions.
+- Provides a **recommendation line** at the bottom, like “It’s a good day! You can travel outside 🌞”.
+- Responsive design using **media queries**, works on all devices.
+- Error handling: Displays an alert when the entered city is invalid.
+
+---
+
+## **Technologies Used**
+- **Frontend:** React.js
+- **Styling:** Plain CSS
+- **Icons:** React Icons (weather icons)
+- **API:** [OpenWeatherMap API](https://openweathermap.org/api)
+- **Hosting:** Firebase Hosting
+
+---
+
+
