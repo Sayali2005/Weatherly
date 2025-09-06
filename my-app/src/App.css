@@ -1,0 +1,245 @@
+/* Reset + font */
+/* Prevent horizontal overflow globally */
+* {
+  box-sizing: border-box;  /* ✅ padding won’t add extra width */
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;  /* ✅ cut horizontal scroll */
+}
+
+/* Ensure images don't overflow */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+.app {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* keeps background fixed on scroll */
+  background-repeat: no-repeat; /* prevent tiling */
+  min-height: 100vh;
+  width: 100vw;   /* ✅ force exact viewport width */
+  max-width: 100%; /* ✅ no overflow beyond screen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Dark overlay on background */
+.app::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* adjust opacity here */
+  z-index: 0;
+}
+
+.overlay {
+  position: relative;
+  z-index: 1; /* keeps content above dark layer */
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.55);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  color: #fff;
+  max-width: 480px;
+  width: 90%;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ffeb3b;
+}
+
+.slogan {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #ffd54f;        /* golden highlight */
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  transition: 0.3s ease;
+}
+
+.slogan:hover {
+  color: #ffeb3b;        /* slightly brighter on hover */
+  transform: scale(1.05);
+}
+
+/* Container for slogan + icon */
+.slogan-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Small icon animation */
+.slogan-icon {
+  font-size: 1.5rem;
+  color: #ffd54f;
+}
+
+/* Small sun animation for slogan */
+.sun-move-small {
+  animation: moveSunSmall 4s linear infinite alternate;
+}
+
+@keyframes moveSunSmall {
+  0% { transform: translateY(0); color: #ffd54f; }
+  100% { transform: translateY(-5px); color: #ffca28; }
+}
+
+
+/* Search */
+.search {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.search input {
+  padding: 0.7rem;
+  border-radius: 10px 0 0 10px;
+  border: none;
+  outline: none;
+  flex: 1;
+}
+
+.search button {
+  padding: 0.7rem 1rem;
+  border-radius: 0 10px 10px 0;
+  border: none;
+  background-color: #ffeb3b;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.search button:hover {
+  background-color: #ffc107;
+}
+
+/* Weather card */
+.weather-card {
+  margin-top: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1.5rem;
+}
+
+.weather-card h2 span {
+  color: #ffeb3b;
+}
+
+.main-image img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin: 1rem 0;
+  display: block;     /* ✅ avoids inline overflow spacing */
+}
+
+.temp {
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+}
+
+.desc {
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+
+/* Extra info */
+.extra {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.extra p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Recommendation */
+.recommendation {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* Icons + Animations */
+.icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.sun-move {
+  animation: moveSun 6s linear infinite alternate;
+}
+@keyframes moveSun {
+  0% { transform: translateY(0); color: #ffd54f; }
+  100% { transform: translateY(-15px); color: #ff9800; }
+}
+
+.cloud-move {
+  animation: drift 8s linear infinite;
+}
+@keyframes drift {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(20px); }
+}
+
+.rain-drop {
+  animation: drop 1s ease-in-out infinite alternate;
+}
+@keyframes drop {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(10px); }
+}
+
+.snow-fall {
+  animation: snow 2s linear infinite;
+}
+@keyframes snow {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(20px); opacity: 0.7; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .title { font-size: 1.6rem; }
+  .temp { font-size: 2rem; }
+  .extra { flex-direction: column; gap: 0.5rem; }
+}
+
+@media (max-width: 480px) {
+  .overlay { padding: 1rem; }
+  .search input { font-size: 0.9rem; }
+  .search button { font-size: 0.9rem; }
+  .recommendation { font-size: 0.9rem; }
+}
